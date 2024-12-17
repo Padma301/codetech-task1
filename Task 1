@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+public class basiccalculator {
+    public static void main(String[] args) {
+        // Create a Scanner object to read input from the user
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter the first number
+        System.out.print("Enter the first number: ");
+        double number1 = scanner.nextDouble();
+
+        // Prompt the user to enter the second number
+        System.out.print("Enter the second number: ");
+        double number2 = scanner.nextDouble();
+
+        // Display the menu of operations
+        System.out.println("Choose an operation:");
+        System.out.println("1. Addition (+)");
+        System.out.println("2. Subtraction (-)");
+        System.out.println("3. Multiplication (*)");
+        System.out.println("4. Division (/)");
+
+        // Read the user's choice of operation
+        System.out.print("Enter your choice (1-4): ");
+        int choice = scanner.nextInt();
+
+        // Variable to store the result
+        double result = 0;
+        boolean validChoice = true;
+
+        // Perform the chosen operation
+        switch (choice) {
+            case 1: // Addition
+                result = number1 + number2;
+                break;
+            case 2: // Subtraction
+                result = number1 - number2;
+                break;
+            case 3: // Multiplication
+                result = number1 * number2;
+                break;
+            case 4: // Division
+                if (number2 != 0) {
+                    result = number1 / number2;
+                } else {
+                    System.out.println("Error: Division by zero is not allowed.");
+                    validChoice = false;
+                }
+                break;
+            default:
+                System.out.println("Invalid choice. Please select a valid operation (1-4).");
+                validChoice = false;
+        }
+
+        // Display the result if the choice was valid
+        if (validChoice) {
+            System.out.println("The result is: " + result);
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+}
